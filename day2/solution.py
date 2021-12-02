@@ -1,16 +1,16 @@
 commands = [
-	'forward 5',
-	'down 5',
-	'forward 8',
-	'up 3',
-	'down 8',
-	'forward 2',
+    'forward 5',
+    'down 5',
+    'forward 8',
+    'up 3',
+    'down 8',
+    'forward 2',
 ];
 
 command_handlers = {
-	'forward': lambda value: lambda (horizontal, depth, aim): (horizontal + value, depth + aim * value, aim),
-	'down': lambda value: lambda (horizontal, depth, aim): (horizontal, depth, aim + value),
-	'up': lambda value: lambda (horizontal, depth, aim): (horizontal, depth, aim - value)
+    'forward': lambda value: lambda (horizontal, depth, aim): (horizontal + value, depth + aim * value, aim),
+    'down': lambda value: lambda (horizontal, depth, aim): (horizontal, depth, aim + value),
+    'up': lambda value: lambda (horizontal, depth, aim): (horizontal, depth, aim - value)
 }
 
 get_command_handler = lambda (command, value): command_handlers[command](int(value))
