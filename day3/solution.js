@@ -22,8 +22,8 @@ const getMostCommon = (arr, i) => arr.reduce((acc, n) => acc + n[i], 0) >= arr.l
 const getLeastCommon = (arr, i) => 1 - getMostCommon(arr, i);
 
 const filterByCriteria = (arr, bitCriteria, i=0) => {
-	const filtered = arr.filter(n => n[i] === bitCriteria(arr, i));
-	return arr.length === 1 ? arr[0] : filterByCriteria(filtered, bitCriteria, i + 1);
+    const filtered = arr.filter(n => n[i] === bitCriteria(arr, i));
+    return arr.length === 1 ? arr[0] : filterByCriteria(filtered, bitCriteria, i + 1);
 }
 
 const gammaRate = toDecimal(handlePerBit(reportBits, getMostCommon));
