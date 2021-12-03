@@ -33,4 +33,4 @@ const oxygenGeneratorRating = toDecimal(filterByCriteria(reportBits, getMostComm
 const CO2ScrubberRating = toDecimal(filterByCriteria(reportBits, getLeastCommon));
 
 console.log('Power consumption is:', gammaRate * omegaRate);
-console.log('Life support rating:', oxygenGeneratorRating*CO2ScrubberRating);
+console.log('Life support rating:', oxygenGeneratorRating * CO2ScrubberRating);
