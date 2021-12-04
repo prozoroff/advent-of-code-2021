@@ -22,6 +22,7 @@ const input = `
 
 const splitStringBy = (str, delimiter=/\s+|,/) => str.split(delimiter).filter(s => s);
 const parseInts = arr => arr.filter(x => x).map(n => parseInt(n));
+
 const parseBoards = (boardLines, acc = []) => {
 	const [a, b, c, d, e, ...rest] = boardLines;
 	const rows = [a, b, c, d, e].map(str => parseInts(splitStringBy(str)));
@@ -38,6 +39,7 @@ const tickNumber = number => arrays => arrays.map(array => array.filter(n => n !
 const isBoardSolved = condition => arrays => !!arrays.find(array => !array.length) === condition;
 const sumArray = arr => arr.reduce((a, b) => a + b, 0)
 const allNumbersSum = arrays => sumArray(arrays.slice(0, arrays.length/2).map(sumArray));
+
 const findNSolved = (n, boards=pazzleBoards, [num, ...rest]=pazzleNumbers) => {
 	const tickedBoards = boards.filter(isBoardSolved(false)).map(tickNumber(num));
 	const solved = tickedBoards.find(isBoardSolved(true));
