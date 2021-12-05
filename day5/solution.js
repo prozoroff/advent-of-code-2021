@@ -19,7 +19,6 @@ const getLine = (point, allowDiagonal=false) => {
     const [xd, yd] = [Math.sign(x2 - x1), Math.sign(y2 - y1)];
     const steps = Math.max(Math.abs(x2 - x1), Math.abs(y2 - y1)) + 1;
     const isDiagonal = xd === yd || xd === -yd;
-
     return isDiagonal && !allowDiagonal ? [] : times((_, i) => [x1 + i * xd, y1 + i * yd], steps);
 }
 
