@@ -1,7 +1,4 @@
-const {
-	input: {parseVectors},
-	array: {sum, times},
-} = require('../utils');
+const {input: {parseVectors}, array: {sum, times}} = require('../utils');
 const {abs, sign, max} = Math;
 
 const vectors = parseVectors(`
@@ -25,13 +22,13 @@ const getLine = ([x1, y1, x2, y2], allowDiagonal=false) => {
 };
 
 const getOverlaps = allowDiagonal => vectors
-	.reduce((acc, point) => [...acc, ...getLine(point, allowDiagonal)],[])
-	.reduce((acc, [x, y]) => {
-		acc[y] = acc[y] || [];
-		acc[y][x] = (acc[y][x] || 0) + 1;
-		return acc;
-	}, [])
-	.reduce((acc, row) => acc + sum(row.map(cell => cell > 1 ? 1 : 0)), 0);
+    .reduce((acc, point) => [...acc, ...getLine(point, allowDiagonal)],[])
+    .reduce((acc, [x, y]) => {
+        acc[y] = acc[y] || [];
+        acc[y][x] = (acc[y][x] || 0) + 1;
+        return acc;
+    }, [])
+    .reduce((acc, row) => acc + sum(row.map(cell => cell > 1 ? 1 : 0)), 0);
 
 console.log(getOverlaps(), 'points overlap');
 console.log(getOverlaps(true), 'points overlap considering diagonal lines');

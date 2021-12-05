@@ -1,14 +1,14 @@
 data = [
-	199,
-	200,
-	208,
-	210,
-	200,
-	207,
-	240,
-	269,
-	260,
-	263,
+    199,
+    200,
+    208,
+    210,
+    200,
+    207,
+    240,
+    269,
+    260,
+    263,
 ];
 
 count_positive = lambda array: len(filter(lambda item: item > 0, array))

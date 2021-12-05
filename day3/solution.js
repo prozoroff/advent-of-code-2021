@@ -1,7 +1,4 @@
-const {
-	input: {parseBits},
-	formatting: {toDecimal},
-} = require('../utils');
+const {input: {parseBits}, formatting: {toDecimal}} = require('../utils');
 
 const report = parseBits(`
 00100
@@ -19,7 +16,7 @@ const report = parseBits(`
 `);
 
 const mostCommon = (arr, i) => arr
-	.reduce((acc, n) => acc + n[i], 0) >= arr.length / 2 ? 1 : 0;
+    .reduce((acc, n) => acc + n[i], 0) >= arr.length / 2 ? 1 : 0;
 
 const filterByCriteria = (bitCriteria, arr=report, i=0) => {
     const filtered = arr.filter(n => n[i] === bitCriteria(arr, i));

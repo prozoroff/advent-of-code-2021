@@ -1,7 +1,4 @@
-const {
-	input: {parseBingo},
-	array: {sum},
-} = require('../utils');
+const {input: {parseBingo}, array: {sum}} = require('../utils');
 
 const [puzzleNumbers, puzzleBoards] = parseBingo(`
 7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
@@ -27,15 +24,15 @@ const [puzzleNumbers, puzzleBoards] = parseBingo(`
 
 const findNSolved = (n, boards=puzzleBoards, [num, ...rest]=puzzleNumbers) => {
     const tickedBoards = boards
-		.filter(board => !board.find(array => !array.length))
-		.map(arrays => arrays.map(array => array.filter(n => n !== num)));
+        .filter(board => !board.find(array => !array.length))
+        .map(arrays => arrays.map(array => array.filter(n => n !== num)));
 
-	const solvedBoard = tickedBoards
-		.find(board => board.find(array => !array.length));
+    const solvedBoard = tickedBoards
+        .find(board => board.find(array => !array.length));
 
     return solvedBoard && tickedBoards.length === puzzleBoards.length - n
-		? [sum(solvedBoard.slice(0, solvedBoard.length/2).map(sum)), num]
-		: findNSolved(n, tickedBoards, rest);
+        ? [sum(solvedBoard.slice(0, solvedBoard.length/2).map(sum)), num]
+        : findNSolved(n, tickedBoards, rest);
 }
 
 const [firstSum, firstNum] = findNSolved(0);

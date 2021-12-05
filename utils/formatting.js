@@ -1,2 +1,2 @@
 exports.toDecimal = bits =>
-	parseInt(bits.join(''), 2);
+    parseInt(bits.join(''), 2);
