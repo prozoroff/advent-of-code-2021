@@ -6,18 +6,18 @@ exports.times = (func, n) =>
     .map((_,i) => func(i));
 
 exports.min = arr =>
-	Math.min.apply(null, arr);
+    Math.min.apply(null, arr);
 
 exports.max = arr =>
-	Math.max.apply(null, arr);
+    Math.max.apply(null, arr);
 
 exports.range = (func, from, to) =>
-	this.zeros(to + 1 - from)
-	.map((_,i) => func(i + from));
+    this.zeros(to + 1 - from)
+    .map((_,i) => func(i + from));
 
 exports.sort = arr =>
-	arr.sort((a, b) => a > b ? 1 : -1);
+    arr.sort((a, b) => a > b ? 1 : -1);
 
 exports.zeros = n =>
-	new Array(n).fill(0);
+    new Array(n).fill(0);
 
