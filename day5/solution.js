@@ -18,7 +18,7 @@ const getLine = ([x1, y1, x2, y2], allowDiagonal=false) => {
     const [xd, yd] = [sign(x2 - x1), sign(y2 - y1)];
     const steps = max(abs(x2 - x1), abs(y2 - y1)) + 1;
     const isDiagonal = xd === yd || xd === -yd;
-    return isDiagonal && !allowDiagonal ? [] : times((_, i) => [x1 + i * xd, y1 + i * yd], steps);
+    return isDiagonal && !allowDiagonal ? [] : times((i) => [x1 + i * xd, y1 + i * yd], steps);
 };
 
 const getOverlaps = allowDiagonal => vectors
