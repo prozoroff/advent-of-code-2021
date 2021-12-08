@@ -31,3 +31,9 @@ exports.parseVectors = input =>
     .map(vector => vector.split(/\s|,/)
         .map(c => parseInt(c))
         .filter(num => !Number.isNaN(num)));
+
+exports.parseDigits = input =>
+    splitBy(input, '\n')
+    .filter(x => x)
+    .map(line => splitBy(line, ' | ')
+        .map(str => splitBy(str, ' ')));
