@@ -20,20 +20,17 @@ const chunks = {
     '<': '>'
 };
 
-const isOpen = chunk => '[{<('.includes(chunk);
-const isClose = chunk => '])>}'.includes(chunk);
-
 const parseChunks = (line, index=0, history=[]) => {
     const chunk = line[index];
     
-    if (!chunk || isClose(chunk) && chunks[history.pop()] !== chunk) {
+    if (!chunk || !chunks[chunk] && chunks[history.pop()] !== chunk) {
         return {
             corruptedChunk: chunk, 
             addition: !chunk && history.map(h => chunks[h]).reverse()
         };  
     }
 
-    isOpen(chunk) && history.push(chunk);
+    chunks[chunk] && history.push(chunk);
     return parseChunks(line, index + 1, history);
 }
 
