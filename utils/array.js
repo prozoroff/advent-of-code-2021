@@ -1,6 +1,9 @@
 exports.sum = arr => arr
     .reduce((a, b) => a + b, 0);
 
+exports.mul = arr => arr
+    .reduce((a, b) => a * b, 1);
+
 exports.times = (func, n) =>
     this.zeros(n)
     .map((_,i) => func(i));

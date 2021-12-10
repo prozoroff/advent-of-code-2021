@@ -37,3 +37,9 @@ exports.parseDigits = input =>
     .filter(x => x)
     .map(line => splitBy(line, ' | ')
         .map(str => splitBy(str, ' ')));
+
+exports.parseMatrix = input =>
+    splitBy(input, '\n')
+    .filter(x => x)
+    .map(row => row.split('')
+        .map(item => parseInt(item)));
