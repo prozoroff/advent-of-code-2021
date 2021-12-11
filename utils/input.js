@@ -38,8 +38,8 @@ exports.parseDigits = input =>
     .map(line => splitBy(line, ' | ')
         .map(str => splitBy(str, ' ')));
 
-exports.parseMatrix = input =>
+exports.parseMatrix = (input, getter) =>
     splitBy(input, '\n')
     .filter(x => x)
-    .map(row => row.split('')
-        .map(item => parseInt(item)));
+    .map((row, j) => row.split('')
+        .map((item, i) => getter ? getter(item, j, i) : parseInt(item)));
