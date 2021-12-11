@@ -1,4 +1,4 @@
-const {array: {sum, times}, matrix: {Matrix}, input: {parseMatrix}} = require('../utils');
+const {array: {sum, times}, input: {parseMatrix}} = require('../utils');
 const {abs} = Math;
 
 class Octopus {
@@ -26,7 +26,7 @@ class Octopus {
     }
 }
 
-const matrix = new Matrix(parseMatrix(`
+const matrix = parseMatrix(`
 5483143223
 2745854711
 5264556173
@@ -37,7 +37,7 @@ const matrix = new Matrix(parseMatrix(`
 6882881134
 4846848554
 5283751526
-`, (value, j, i) => new Octopus(value, j, i)));
+`, (value, j, i) => new Octopus(value, j, i));
 
 const flashes = times(() => {
     matrix.forEach(octopus => octopus.reset());

@@ -1,4 +1,5 @@
 const {splitBy} = require('./string');
+const {Matrix} = require('./matrix');
 
 exports.parseInts = input => splitBy(input, '\n')
     .map(item => parseInt(item));
@@ -38,8 +39,8 @@ exports.parseDigits = input =>
     .map(line => splitBy(line, ' | ')
         .map(str => splitBy(str, ' ')));
 
-exports.parseMatrix = (input, getter) =>
+exports.parseMatrix = (input, getter) => new Matrix(
     splitBy(input, '\n')
     .filter(x => x)
     .map((row, j) => row.split('')
-        .map((item, i) => getter ? getter(item, j, i) : parseInt(item)));
+        .map((item, i) => getter ? getter(item, j, i) : parseInt(item))));

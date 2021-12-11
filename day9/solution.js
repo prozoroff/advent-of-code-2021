@@ -1,12 +1,12 @@
-const {array: {sum, mul, sort}, input: {parseMatrix}, matrix: {Matrix}, } = require('../utils');
+const {array: {sum, mul, sort}, input: {parseMatrix}} = require('../utils');
 
-const matrix = new Matrix(parseMatrix(`
+const matrix = parseMatrix(`
 2199943210
 3987894921
 9856789892
 8767896789
 9899965678
-`));
+`);
 
 const notLessThan = (j, i) => ([dj, di]) => matrix.cell(j + dj, i + di) <= matrix.cell(j, i); 
 const isMin = ([j, i]) => ![[0, 1], [0, -1], [1, 0], [-1, 0]].find(notLessThan(j, i));
