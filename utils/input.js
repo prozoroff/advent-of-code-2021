@@ -44,3 +44,8 @@ exports.parseMatrix = (input, getter) => new Matrix(
     .filter(x => x)
     .map((row, j) => row.split('')
         .map((item, i) => getter ? getter(item, j, i) : parseInt(item))));
+
+exports.parseConnections = input =>
+    splitBy(input, '\n')
+    .filter(x => x)
+    .map(connection => splitBy(connection, '-'));
