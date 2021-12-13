@@ -49,3 +49,12 @@ exports.parseConnections = input =>
     splitBy(input, '\n')
     .filter(x => x)
     .map(connection => splitBy(connection, '-'));
+
+
+exports.parsePaper = input => ({
+    dots: splitBy(input, 'fold along')[0]
+    .split('\n')
+    .filter(x => x)
+    .map(dot => splitBy(dot).map(coord => parseInt(coord))).map(([x, y]) => ({x, y})),
+    folds: input.match(/fold along (y|x)=(\d+)/g).map(fold => splitBy(fold)[2].split('='))
+});

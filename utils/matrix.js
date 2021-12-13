@@ -1,8 +1,16 @@
+class MatrixItem {
+    constructor() {}
+    setMatrix(matrix) {
+        this.matrix = matrix;
+    }
+}
+
 exports.Matrix = class Matrix {
     constructor(data) {
         this.data = data;
         this.rows = data.length;
         this.columns = data[0].length;
+        this.forEach(item => item instanceof MatrixItem && item.setMatrix(this));
     }
     
     forEach(handler) {
@@ -53,3 +61,5 @@ exports.Matrix = class Matrix {
         }
     }
 }
+
+exports.MatrixItem = MatrixItem;
