@@ -60,6 +60,18 @@ exports.Matrix = class Matrix {
             return this.data[j][i];
         }
     }
+
+    set(j, i, value) {
+        if (j >= 0 && j < this.rows && i >= 0 && i < this.columns) {
+            this.data[j][i] = value;
+        }
+    }
+
+    print(delimiter = '') {
+        for(let j = 0; j < this.rows; j++) {
+            console.log(this.data[j].join(delimiter))
+        }
+    }
 }
 
 exports.MatrixItem = MatrixItem;
